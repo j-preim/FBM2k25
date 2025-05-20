@@ -5,8 +5,8 @@
 	import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
     const nflState = getNflState();
-    const podiumsData = getAwards();
-    const leagueTeamManagersData = getLeagueTeamManagers();
+    // const podiumsData = getAwards();
+    // const leagueTeamManagersData = getLeagueTeamManagers();
 </script>
 
 <style>
@@ -162,7 +162,7 @@
                     {:else if nflStateData.season_type == 'post'}
                         Postseason
                     {:else}
-                        Season - {`Day ${nflStateData.currentSeason.currentScoringPeriod.id}`}
+                        {`Scoring Period ${nflStateData.currentSeason.currentScoringPeriod.id}`}
                     {/if}
                 </div>
             {:catch error}

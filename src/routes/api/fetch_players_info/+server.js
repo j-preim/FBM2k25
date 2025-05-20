@@ -15,7 +15,7 @@ export async function GET() {
         compress: true,
         credentials: "include",
         headers: {
-          Cookie:
+          cookie:
             "SWID={20135656-6F94-4144-BFCB-7D5DCAF263EE};espn_s2=AEC017SjlLDQVGg5O1VLCJlIPtEi4bse%2B9Jrx%2BQbESgP5cEpmP3izjY4QI2nKuTdS3xGnDdAcFcE1f%2B3IQ3Wsg9GliCyRyWe74imuI4oN705HCWE0KD2ims0hqAiLvcwaT5GPYHxWMymeGUrWwJnZPEm7SInl9K7JF4jILdIBL96eiLITUvwfaICYwtEk0eOlpItrlJPbpTh4fTGTtD%2BtTNqjyaMqHxSzGp%2BdiI5ijukZ6WzNc7zo6OXUDOJCdd0m8ZLflMPYt5pZinOBN9LCDvkHXYQuW5FofdiGtwfDhz%2F%2Fw%3D%3D;",
         },
       }
@@ -39,7 +39,7 @@ export async function GET() {
     playoffsRes.json()
   );
 
-  console.log(nflState);
+  console.log(leagueData);
 
   let year = nflState.currentSeasonId;
   const regularSeasonLength = leagueData.settings.scheduleSettings.matchupPeriodCount;
