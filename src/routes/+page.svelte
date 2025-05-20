@@ -156,13 +156,13 @@
                 <div class="center">Retrieving MLB state...</div>
                 <LinearProgress indeterminate />
             {:then nflStateData}
-                <div class="center">MLB {nflStateData.season} 
-                    {#if nflStateData.season_type == 'pre'}
+                <div class="center">MLB {nflStateData.currentSeasonId} 
+                    {#if nflStateData.currentSeason.currentScoringPeriod.id == 0}
                         Preseason
                     {:else if nflStateData.season_type == 'post'}
                         Postseason
                     {:else}
-                        Season - {nflStateData.week > 0 ? `Week ${nflStateData.week}` : "Preseason"}
+                        Season - {`Day ${nflStateData.currentSeason.currentScoringPeriod.id}`}
                     {/if}
                 </div>
             {:catch error}
@@ -170,7 +170,7 @@
             {/await}
         </div>
 
-        <div id="currentChamp">
+        <!-- <div id="currentChamp">
             {#await waitForAll(podiumsData, leagueTeamManagersData)}
                 <p class="center">Retrieving awards...</p>
                 <LinearProgress indeterminate />
@@ -188,7 +188,7 @@
             {:catch error}
                 <p class="center">Something went wrong: {error.message}</p>
             {/await}
-        </div>
+        </div> -->
 
         <div class="transactions" >
             <Transactions />
