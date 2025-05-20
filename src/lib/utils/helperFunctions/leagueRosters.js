@@ -12,7 +12,7 @@ export const getLeagueRosters = async (queryLeagueID = leagueID) => {
     ) {
 		return storedRoster;
 	}
-    const res = await fetch(`https://api.sleeper.app/v1/league/${queryLeagueID}/rosters`, {compress: true}).catch((err) => { console.error(err); });
+    const res = await fetch(`https://lm-api-reads.fantasy.espn.com/apis/v3/games/flb/seasons/2025/segments/0/leagues/${queryLeagueID}/teams?view=mRoster`, {compress: true}).catch((err) => { console.error(err); });
 	const data = await res.json().catch((err) => { console.error(err); });
 	
 	if (res.ok) {

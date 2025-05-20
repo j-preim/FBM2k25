@@ -73,8 +73,8 @@ export const tabs = [
             },
             {
                 icon: 'sports_football',
-                label: 'Go to Sleeper',
-                dest: `https://sleeper.app/leagues/${leagueID}`,
+                label: 'Go to ESPN League Page',
+                dest: `https://fantasy.espn.com/baseball/league?leagueId=${leagueID}`,
             },
         ]
     },
