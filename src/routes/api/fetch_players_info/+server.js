@@ -63,8 +63,6 @@ export async function GET() {
     ),
   ];
 
-  console.log("player data: " + resPromises[0])
-
   // for (let week = 1; week <= fullSeasonLength + 3; week++) {
   //   resPromises.push(
   //     fetch(
@@ -75,6 +73,8 @@ export async function GET() {
   // }
 
   const responses = await waitForAll(...resPromises);
+
+  console.log("player data: " + responses[0])
 
   const resJSONs = [];
   for (const res of responses) {
