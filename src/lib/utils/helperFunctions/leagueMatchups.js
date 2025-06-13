@@ -1,6 +1,6 @@
 import { getLeagueData } from "./leagueData"
 import { leagueID } from '$lib/utils/leagueInfo';
-import { getNflState } from "./mlbState"
+import { getMlbState } from "./mlbState"
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
 import {matchupsStore} from '$lib/stores';
@@ -10,15 +10,15 @@ export const getLeagueMatchups = async () => {
 		return get(matchupsStore);
 	}
 
-	const [nflState, leagueData] = await waitForAll(
-		getNflState(),
+	const [mlbState, leagueData] = await waitForAll(
+		getMlbState(),
 		getLeagueData(),
 	).catch((err) => { console.error(err); });
 
 	let week = 1;
-	if(nflState.season_type == 'regular') {
-		week = nflState.display_week;
-	} else if(nflState.season_type == 'post') {
+	if(mlbState.season_type == 'regular') {
+		week = mlbState.display_week;
+	} else if(mlbState.season_type == 'post') {
 		week = 18;
 	}
 	const year = leagueData.season;

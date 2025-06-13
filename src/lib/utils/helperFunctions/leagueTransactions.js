@@ -1,6 +1,6 @@
 import { getLeagueData } from './leagueData';
 import { leagueID } from '$lib/utils/leagueInfo';
-import { getNflState } from './mlbState';
+import { getMlbState } from './mlbState';
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
 import {transactionsStore} from '$lib/stores';
@@ -30,11 +30,11 @@ export const getLeagueTransactions = async (preview, refresh = false) => {
 	}
 
 	// gather supporting info simultaneously
-	const nflState = await getNflState().catch((err) => { console.error(err); });
+	const mlbState = await getMlbState().catch((err) => { console.error(err); });
 	
 	let week = 18;
-	if(nflState.season_type == 'regular') {
-		week = nflState.week;
+	if(mlbState.season_type == 'regular') {
+		week = mlbState.week;
 	}
 
 	const {transactionsData, currentSeason} = await combThroughTransactions(week, leagueID).catch((err) => { console.error(err); });

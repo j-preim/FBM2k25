@@ -1,6 +1,6 @@
 import { getLeagueData } from './leagueData';
 import { leagueID } from '$lib/utils/leagueInfo';
-import { getNflState } from './mlbState';
+import { getMlbState } from './mlbState';
 import { getLeagueRosters } from "./leagueRosters";
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
@@ -33,11 +33,11 @@ export const getLeagueRecords = async (refresh = false) => {
 	}
 
 	// get info about the current NFL season (week and season type)
-	const nflState = await getNflState().catch((err) => { console.error(err); });
+	const mlbState = await getMlbState().catch((err) => { console.error(err); });
 	let week = 0;
-	if(nflState.season_type == 'regular') {
-		week = nflState.week - 1;
-	} else if(nflState.season_type == 'post') {
+	if(mlbState.season_type == 'regular') {
+		week = mlbState.week - 1;
+	} else if(mlbState.season_type == 'post') {
 		week = 18;
 	}
 
@@ -71,7 +71,7 @@ export const getLeagueRecords = async (refresh = false) => {
 
 		const rosters = rosterRes.rosters;
 
-		// on first run, week is provided above from nflState,
+		// on first run, week is provided above from mlbState,
 		// after that get the final week of regular season from leagueData
 		if(leagueData.status == 'complete' || week > leagueData.settings.playoff_week_start - 1) {
 			week = 99; // set it high
@@ -134,7 +134,7 @@ export const getLeagueRecords = async (refresh = false) => {
 const processRegularSeason = async ({rosters, leagueData, curSeason, week, regularSeason}) => {
 	let year = parseInt(leagueData.season);
 
-	// on first run, week is provided above from nflState,
+	// on first run, week is provided above from mlbState,
 	// after that get the final week of regular season from leagueData
 	if(leagueData.status == 'complete' || week > leagueData.settings.playoff_week_start - 1) {
 		week = leagueData.settings.playoff_week_start - 1;

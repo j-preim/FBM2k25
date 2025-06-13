@@ -1,7 +1,7 @@
 <script>
 	import BarChart from '$lib/BarChart.svelte';
     import { generateGraph, getTeamFromTeamManagers, round, predictScores, loadPlayers } from '$lib/utils/helper';
-    export let nflState, rostersData, leagueTeamManagers, playersInfo, leagueData;
+    export let mlbState, rostersData, leagueTeamManagers, playersInfo, leagueData;
 
     const rosters = rostersData.rosters;
 
@@ -13,7 +13,7 @@
 
     const buildRankings = () => {
         const rosterPowers = [];
-        let week = nflState.week;
+        let week = mlbState.week;
         if(week == 0) {
             week = 1;
         }

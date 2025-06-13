@@ -1,6 +1,6 @@
 import { getLeagueData } from "./leagueData"
 import { leagueID } from '$lib/utils/leagueInfo';
-import { getNflState } from "./mlbState"
+import { getMlbState } from "./mlbState"
 import { waitForAll } from './multiPromise';
 import { getRosterIDFromManagerIDAndYear } from '$lib/utils/helperFunctions/universalFunctions';
 import { getLeagueTeamManagers } from "./leagueTeamManagers";
@@ -12,15 +12,15 @@ export const getRivalryMatchups = async (userOneID, userTwoID) => {
 
     let curLeagueID = leagueID;
 
-	const [nflState, teamManagers] = await waitForAll(
-		getNflState(),
+	const [mlbState, teamManagers] = await waitForAll(
+		getMlbState(),
 		getLeagueTeamManagers(),
 	).catch((err) => { console.error(err); });
 
 	let week = 1;
-	if(nflState.season_type == 'regular') {
-		week = nflState.display_week;
-	} else if(nflState.season_type == 'post') {
+	if(mlbState.season_type == 'regular') {
+		week = mlbState.display_week;
+	} else if(mlbState.season_type == 'post') {
 		week = 18;
 	}
 

@@ -1,5 +1,5 @@
 import { leagueID } from '$lib/utils/leagueInfo';
-import { getNflState } from "./mlbState"
+import { getMlbState } from "./mlbState"
 import { getLeagueData } from "./leagueData"
 import { getLeagueRosters } from "./leagueRosters"
 import { waitForAll } from './multiPromise';
@@ -12,8 +12,8 @@ export const getLeagueStandings = async () => {
 		return get(standingsStore);
 	}
 
-	const [nflState, leagueData, rostersData] = await waitForAll(
-		getNflState(),
+	const [mlbState, leagueData, rostersData] = await waitForAll(
+		getMlbState(),
 		getLeagueData(),
 		getLeagueRosters(),
 	).catch((err) => { console.error(err); });
@@ -24,7 +24,7 @@ export const getLeagueStandings = async () => {
     const rosters = rostersData.rosters;
 
 	// if the season hasn't started, standings can't be created
-	if((leagueData.status != "in_season" && leagueData.status != "post_season" && leagueData.status != "complete") || nflState.week < 1) {
+	if((leagueData.status != "in_season" && leagueData.status != "post_season" && leagueData.status != "complete") || mlbState.week < 1) {
 		return null;
 	}
 
@@ -47,10 +47,10 @@ export const getLeagueStandings = async () => {
 
     if(divisions) {
         let week = 0;
-        if(nflState.season_type == 'regular') {
+        if(mlbState.season_type == 'regular') {
             // max the week out at end of regular season
-            week = nflState.display_week > regularSeasonLength ? regularSeasonLength + 1 : nflState.display_week;
-        } else if(nflState.season_type == 'post') {
+            week = mlbState.display_week > regularSeasonLength ? regularSeasonLength + 1 : mlbState.display_week;
+        } else if(mlbState.season_type == 'post') {
             week = regularSeasonLength + 1;
         }
 

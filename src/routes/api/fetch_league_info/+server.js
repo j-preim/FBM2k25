@@ -5,7 +5,7 @@ import { json, error } from "@sveltejs/kit";
 
 export async function GET() {
   // get MLB state from sleeper (scoring period, matchup, and year)
-  const [nflStateRes, leagueDataRes, playoffsRes] = await waitForAll(
+  const [mlbStateRes, leagueDataRes, playoffsRes] = await waitForAll(
     fetch(`https://lm-api-reads.fantasy.espn.com/apis/v3/games/flb/`, {
       compress: true,
     }),
@@ -33,15 +33,15 @@ export async function GET() {
     )
   );
 
-  const [nflState, leagueData, playoffs] = await waitForAll(
-    nflStateRes.json(),
+  const [mlbState, leagueData, playoffs] = await waitForAll(
+    mlbStateRes.json(),
     leagueDataRes.json(),
     playoffsRes.json()
   );
 
   console.log(leagueData);
 
-  let year = nflState.currentSeasonId;
+  let year = mlbState.currentSeasonId;
   const regularSeasonLength = leagueData.settings.scheduleSettings.matchupPeriodCount;
   const playoffLength = leagueData.settings.scheduleSettings.playoffMatchupPeriodLength * 2;
   const fullSeasonLength = regularSeasonLength + playoffLength;
