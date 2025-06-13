@@ -74,8 +74,6 @@ export async function GET() {
 
   const responses = await waitForAll(...resPromises);
 
-  console.log("player data: " + responses[0])
-
   const resJSONs = [];
   for (const res of responses) {
     if (!res.ok) {
@@ -85,6 +83,8 @@ export async function GET() {
   }
 
   const weeklyData = await waitForAll(...resJSONs);
+
+  console.log("player data: " + weeklyData[0])
 
   const playerData = weeklyData.shift(); // first item is all player data, remaining items are weekly data for projections
 
