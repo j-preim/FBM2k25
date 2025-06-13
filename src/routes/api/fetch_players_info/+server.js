@@ -84,7 +84,7 @@ export async function GET() {
 
   const weeklyData = await waitForAll(...resJSONs);
 
-  console.log("player data: " + weeklyData[0])
+  console.log("player data: " + weeklyData[0].fullName)
 
   const playerData = weeklyData.shift(); // first item is all player data, remaining items are weekly data for projections
 
