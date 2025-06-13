@@ -40,7 +40,7 @@
 	}
 
 	#logo {
-		width: 80px;
+		width: 500px;
 		display: block;
 		margin: 0 auto;
 		padding: 10px;
