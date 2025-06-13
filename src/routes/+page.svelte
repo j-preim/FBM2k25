@@ -1,10 +1,10 @@
 <script>
 	import LinearProgress from '@smui/linear-progress';
-	import { getNflState, leagueName, getAwards, getLeagueTeamManagers, homepageText, managers, gotoManager, enableBlog, waitForAll } from '$lib/utils/helper';
+	import { getMlbState, leagueName, getAwards, getLeagueTeamManagers, homepageText, managers, gotoManager, enableBlog, waitForAll } from '$lib/utils/helper';
 	import { Transactions, PowerRankings, HomePost} from '$lib/components';
 	import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
-    const nflState = getNflState();
+    const mlbState = getMlbState();
     // const podiumsData = getAwards();
     // const leagueTeamManagersData = getLeagueTeamManagers();
 </script>
@@ -152,17 +152,17 @@
     
     <div class="leagueData">
         <div class="homeBanner">
-            {#await nflState}
+            {#await mlbState}
                 <div class="center">Retrieving MLB state...</div>
                 <LinearProgress indeterminate />
-            {:then nflStateData}
-                <div class="center">MLB {nflStateData.currentSeasonId} 
-                    {#if nflStateData.currentSeason.currentScoringPeriod.id == 0}
+            {:then mlbStateData}
+                <div class="center">MLB {mlbStateData.currentSeasonId} 
+                    {#if mlbStateData.currentSeason.currentScoringPeriod.id == 0}
                         Preseason
-                    {:else if nflStateData.season_type == 'post'}
+                    {:else if mlbStateData.season_type == 'post'}
                         Postseason
                     {:else}
-                        {`Scoring Period ${nflStateData.currentSeason.currentScoringPeriod.id}`}
+                        {`Scoring Period ${mlbStateData.currentSeason.currentScoringPeriod.id}`}
                     {/if}
                 </div>
             {:catch error}

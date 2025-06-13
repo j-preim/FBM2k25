@@ -1,5 +1,5 @@
 import { leagueID } from '$lib/utils/leagueInfo';
-import { getNflState } from "./nflState"
+import { getNflState } from "./mlbState"
 import { getLeagueData } from "./leagueData"
 import { getLeagueRosters } from "./leagueRosters"
 import { waitForAll } from './multiPromise';

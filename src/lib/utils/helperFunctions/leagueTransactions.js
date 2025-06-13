@@ -1,6 +1,6 @@
 import { getLeagueData } from './leagueData';
 import { leagueID } from '$lib/utils/leagueInfo';
-import { getNflState } from './nflState';
+import { getNflState } from './mlbState';
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
 import {transactionsStore} from '$lib/stores';

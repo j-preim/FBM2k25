@@ -1,6 +1,6 @@
 import { getLeagueData } from "./leagueData"
 import { leagueID } from '$lib/utils/leagueInfo';
-import { getNflState } from "./nflState"
+import { getNflState } from "./mlbState"
 import { waitForAll } from './multiPromise';
 import { getRosterIDFromManagerIDAndYear } from '$lib/utils/helperFunctions/universalFunctions';
 import { getLeagueTeamManagers } from "./leagueTeamManagers";

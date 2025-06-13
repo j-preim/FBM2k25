@@ -4,7 +4,7 @@ import { waitForAll } from "$lib/utils/helperFunctions/multiPromise";
 import { json, error } from "@sveltejs/kit";
 
 export async function GET() {
-  // get NFL state from sleeper (week and year)
+  // get MLB state from sleeper (scoring period, matchup, and year)
   const [nflStateRes, leagueDataRes, playoffsRes] = await waitForAll(
     fetch(`https://lm-api-reads.fantasy.espn.com/apis/v3/games/flb/`, {
       compress: true,
