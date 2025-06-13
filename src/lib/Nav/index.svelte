@@ -23,7 +23,7 @@
 </script>
 
 <svelte:head>
-	<title>{!page.url.pathname[1] ? 'Home' : page.url.pathname[1].toUpperCase() + page.url.pathname.slice(2)} | League Page</title>
+	<title>{!page.url.pathname[1] ? 'Home' : page.url.pathname[1].toUpperCase() + page.url.pathname.slice(2)} | FBM 2k25</title>
 </svelte:head>
 
 <style>

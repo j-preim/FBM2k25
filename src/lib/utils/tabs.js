@@ -19,12 +19,12 @@ export const tabs = [
         dest: '/transactions',
         key: 'transactions',
     },
-    {
-        icon: 'article',
-        label: 'Blog',
-        dest: '/blog',
-        key: 'blog',
-    },
+    // {
+    //     icon: 'article',
+    //     label: 'Blog',
+    //     dest: '/blog',
+    //     key: 'blog',
+    // },
     {
         icon: 'view_comfy',
         label: 'League Info',
@@ -41,11 +41,11 @@ export const tabs = [
                 label: 'Managers',
                 dest: '/managers',
             },
-            {
-                icon: 'local_fire_department',
-                label: 'Rivalry',
-                dest: '/rivalry',
-            },
+            // {
+            //     icon: 'local_fire_department',
+            //     label: 'Rivalry',
+            //     dest: '/rivalry',
+            // },
             {
                 icon: 'leaderboard',
                 label: 'Standings',
@@ -66,11 +66,11 @@ export const tabs = [
                 label: 'Records',
                 dest: '/records',
             },
-            {
-                icon: 'history_edu',
-                label: 'Constitution',
-                dest: '/constitution',
-            },
+            // {
+            //     icon: 'history_edu',
+            //     label: 'Constitution',
+            //     dest: '/constitution',
+            // },
             {
                 icon: 'sports_football',
                 label: 'Go to ESPN League Page',
