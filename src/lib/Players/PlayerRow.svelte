@@ -3,22 +3,19 @@
 	
 	export let player;
 
-	// const playerSlotClass = player.slot.replace('/', '').replace('SUPER_', 'S-').replace('REC_', 'R-');
-	// const playerSlot = player.slot.replace('SUPER_', 'S ').replace('REC_', 'R ');
-
 	const playerPosClass = player.pos.replace('1B', 'X1B').replace('2B', 'X2B').replace('3B', 'X3B');
 </script>
 
 <style>
 	.playerAvatar {
-        position: relative;
+    position: relative;
 		vertical-align: middle;
 		height: 40px;
 		width: 40px;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: auto 45px;
-        overflow: visible;
+    overflow: visible;
 	}
 	.teamLogo {
 			width: 21px;

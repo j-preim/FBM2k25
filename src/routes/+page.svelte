@@ -22,7 +22,7 @@
         flex-grow: 1;
         min-width: 320px;
         margin: 0 auto;
-        padding: 60px 0;
+        padding: 50px 0;
     }
 
     .text {
@@ -67,6 +67,9 @@
 
     h6 {
         text-align: center;
+        font-size: xx-large;
+        margin-top: 0px;
+        margin-bottom: 40px;
     }
 
     .homeBanner {
