@@ -33,6 +33,11 @@ export const tabs = [
         children: [
             {
                 icon: 'storage',
+                label: 'Players',
+                dest: '/players',
+            },
+            {
+                icon: 'storage',
                 label: 'Rosters',
                 dest: '/rosters',
             },
