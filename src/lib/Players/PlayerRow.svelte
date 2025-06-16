@@ -228,12 +228,10 @@
 					<!-- name -->
 					{@html player.name}
 					<!-- name -->
+					<br>
 							<div class="additionalInfo">
-									<span class="text-{playerPosClass}" >{@html player.pos}</span>
-									{#if player.teamAb}
-											&nbsp;-&nbsp;
-											{player.teamAb}
-									{/if}
+								{player.teamAb}
+								<span class="text-{playerPosClass}" >{@html player.pos}</span>
 							</div>
 			</div>
 		</Cell>
