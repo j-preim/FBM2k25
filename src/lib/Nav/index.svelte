@@ -1,7 +1,7 @@
 <script>
 	import NavSmall from './NavSmall.svelte';
 	import NavLarge from './NavLarge.svelte';
-    import { page } from '$app/state';
+  import { page } from '$app/state';
 	import IconButton from '@smui/icon-button';
 	import { Icon } from '@smui/common';
 
@@ -46,9 +46,9 @@
 		padding: 10px;
 	}
 
-    .large {
-		display: block;
-    }
+	.large {
+	display: block;
+	}
 
 	.small {
 		display: none;
@@ -67,6 +67,13 @@
 	@media (max-width: 950px) { /* width of the large navBar */
 		.large {
 			display: none;
+		}
+			#logo {
+			width: 95%;
+			display: block;
+			margin: 0 auto;
+			padding: 10px;
+			padding-top: 40px;
 		}
 
 		.small {
