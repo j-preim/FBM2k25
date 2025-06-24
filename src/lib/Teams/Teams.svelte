@@ -5,7 +5,7 @@
 	export let teamsInfo;
 
 	let teams = teamsInfo;
-	// console.log("players: " + players);
+	// console.log("teams: " + teams);
 
 	const refreshTeams = async () => {
 		const newTeamsInfo = await loadTeams(null, true);

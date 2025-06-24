@@ -1,9 +1,10 @@
 <script>
 	import { Row, Cell } from '@smui/data-table';
+	import { round } from '$lib/utils/helper';
 	
 	export let team;
 
-	// console.log(team);
+	// console.log(team.record);
 
 	// const playerPosClass = player.pos.replace('1B', 'X1B').replace('2B', 'X2B').replace('3B', 'X3B');
 </script>
@@ -89,6 +90,7 @@
 </style>
 
 <Row>
+	<Cell class="rank teamCell"><span class=""></span>{team.playoffSeed}</Cell>
 	{#if team.logo}
 	<Cell class="logo teamCell">
 					<div class="teamLogo" style="{team.logo}">
@@ -96,7 +98,7 @@
 					</div>
 	</Cell>
 	{/if}
-	<Cell class="slot teamCell"><span class=""></span>{team.abbrev}</Cell>
+	<Cell class="abbrev teamCell"><span class=""></span>{team.abbrev}</Cell>
 	<Cell class="teamCell nameCell" colspan={team.name != "Empty" ? 1 : 2}>
 		<div class="info">
 				<!-- name -->
@@ -104,4 +106,7 @@
 				<!-- name -->
 		</div>
 	</Cell>
+	<Cell class="record recordCell">{team.record.wins}-{team.record.losses}-{team.record.ties}</Cell>
+	<Cell class="win% recordCell">{round(team.record.percentage)}</Cell>
+	<Cell class="gb recordCell">{team.record.gamesBack}</Cell>
 </Row>

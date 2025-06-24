@@ -15,7 +15,8 @@
 			digestedTeams[p] = team;
 		}
 
-		// console.log(digestedTeams);
+		digestedTeams.sort((a, b) => a.playoffSeed - b.playoffSeed);
+		console.log(digestedTeams);
 		return digestedTeams;
 	}
 
@@ -138,15 +139,27 @@
 </style>
 
 <div class="team">
-	<DataTable class="teamInner" table$aria-label="Team Name" style="width: {innerWidth * 0.95 > 380 ? 380 : innerWidth * 0.95}px;" >
+	<DataTable class="teamInner" table$aria-label="Team Name" style="width: {innerWidth * 0.95 > 380 ? 600 : innerWidth * 0.95}px;" >
 		<Head> <!-- Team name  -->
 			<Row>
+				<Cell>
+					Rank
+				</Cell>
 				<Cell>
 					Team
 				</Cell>
 				<Cell>
 				</Cell>
 				<Cell>
+				</Cell>
+				<Cell>
+					Record
+				</Cell>
+				<Cell>
+					Win%
+				</Cell>
+				<Cell>
+					GB
 				</Cell>
 			</Row>
 		</Head>

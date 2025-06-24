@@ -31,16 +31,16 @@ export async function GET() {
 
   const [teamsData] = await waitForAll(...resJSONs);
 
-  // console.log(teamsData);
+  console.log(teamsData);
 
-  return json(computeTeams(teamsData[0]));
+  return json(teamsData[0]);
 }
 
 const computeTeams = (teamData) => {
     const computedTeams = [];
 
-    for(let i = 0; i < teamData.teams.length; i++) {
-        const thisTeam = teamData.teams[i];
+    for(let i = 0; i < teamData.length; i++) {
+        const thisTeam = teamData[i];
         const team = {
             abbrev: thisTeam.abbrev,
             id: thisTeam.id,
@@ -48,13 +48,13 @@ const computeTeams = (teamData) => {
             name: thisTeam.name,
             playoffSeed: thisTeam.playoffSeed,
             primaryOwner: thisTeam.primaryOwner,
-            record: thisTeam.record.overall,
+            record: thisTeam.record.overall.wins,
             totalStats: thisTeam.valuesByStat,
         };
         
         computedTeams.push(team);
     }
 
-    // console.log(computedTeams);
+    console.log(computedTeams);
     return computedTeams;
 }

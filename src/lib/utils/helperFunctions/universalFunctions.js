@@ -12,7 +12,7 @@ export const round = (num) => {
     if(typeof(num) =="string") {
         num = parseFloat(num)
     }
-    return (Math.round((num + Number.EPSILON) * 100) / 100).toFixed(2);
+    return (Math.round((num + Number.EPSILON) * 100) / 100).toFixed(3);
 }
 
 const min = (stats, roundOverride, max) => {
