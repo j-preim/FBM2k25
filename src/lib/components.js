@@ -19,6 +19,7 @@ import FullPost from './BlogPosts/FullPost.svelte';
 import Posts from './BlogPosts/Posts.svelte';
 import Standings from './Standings/index.svelte';
 import Players from './Players/Players.svelte'
+import Teams from './Teams/Teams.svelte';
 
 export {
     Nav,
@@ -42,4 +43,5 @@ export {
     FullPost,
     Standings,
     Players,
+    Teams,
 };

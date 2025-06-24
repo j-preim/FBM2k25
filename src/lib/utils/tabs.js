@@ -37,6 +37,11 @@ export const tabs = [
                 dest: '/players',
             },
             {
+                icon: 'groups',
+                label: 'Teams',
+                dest: '/teams',
+            },
+            {
                 icon: 'storage',
                 label: 'Rosters',
                 dest: '/rosters',
