@@ -4,7 +4,7 @@
 
 	export let data;
 	const teamsInfo = data.teamsInfo;
-	// console.log(playersInfo);
+	// console.log(teamsInfo);
 </script>
 
 <style>

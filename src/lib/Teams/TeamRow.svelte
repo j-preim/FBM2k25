@@ -106,7 +106,7 @@
 				<!-- name -->
 		</div>
 	</Cell>
-	<Cell class="record recordCell">{team.record.wins}-{team.record.losses}-{team.record.ties}</Cell>
-	<Cell class="win% recordCell">{round(team.record.percentage)}</Cell>
-	<Cell class="gb recordCell">{team.record.gamesBack}</Cell>
+	<Cell class="record recordCell">{team.record.overall.wins}-{team.record.overall.losses}-{team.record.overall.ties}</Cell>
+	<Cell class="win% recordCell">{round(team.record.overall.percentage)}</Cell>
+	<Cell class="gb recordCell">{team.record.overall.gamesBack == 0 ? '-' : team.record.overall.gamesBack}</Cell>
 </Row>

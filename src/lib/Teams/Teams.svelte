@@ -14,7 +14,7 @@
 
 	if(teamsInfo.stale) {
 		refreshTeams();
-	}
+	} 
 </script>
 
 <style>
