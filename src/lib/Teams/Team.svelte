@@ -16,7 +16,7 @@
 		}
 
 		digestedTeams.sort((a, b) => a.playoffSeed - b.playoffSeed);
-		console.log(digestedTeams);
+		// console.log(digestedTeams);
 		return digestedTeams;
 	}
 
@@ -31,19 +31,6 @@
 <svelte:window bind:innerWidth={innerWidth} />
 
 <style>
-	h5 {
-    text-align: center;
-		margin: 0.2em auto;
-	}
-	
-	.teamAvatar {
-		vertical-align: middle;
-		border-radius: 50%;
-		height: 40px;
-		margin-right: 15px;
-		border: 0.25px solid #777;
-	}
-
 	.team {
 		margin: 4px 10px 10px;
 	}
@@ -73,48 +60,14 @@
 		background-color: var(--r3);
 	}
 
-	.result {
-		width: 11px;
-	}
-
-	h3 {
-		font-size: 1.5em;
-		font-weight: 500;
-		margin: 12px 0;
-	}
-
-	h5 {
-		font-size: 1.2em;
-		text-align: center;
-	}
-
 	@media (max-width: 500px) {
 		.team {
 			font-size: 0.9em;
 		}
-		.result {
-			width: 9px;
-		}
-
-		h3 {
-			font-size: 1.3em;
-			margin: 3px 0;
-		}
-
-		h5 {
-			font-size: 1.1em;
-		}
 	}
 
 	@media (max-width: 340px) {
-		h3 {
-			font-size: 1.1em;
-			margin: 6px 0;
-		}
-
-		h5 {
-			font-size: 1em;
-		}
+		
 	}
 
 	@media (max-width: 400px) {
@@ -139,7 +92,7 @@
 </style>
 
 <div class="team">
-	<DataTable class="teamInner" table$aria-label="Team Name" style="width: {innerWidth * 0.95 > 380 ? 600 : innerWidth * 0.95}px;" >
+	<DataTable class="teamInner" table$aria-label="Team Name" style="width: {innerWidth * 0.95 > 380 ? 700 : innerWidth * 0.95}px;" >
 		<Head> <!-- Team name  -->
 			<Row>
 				<Cell>

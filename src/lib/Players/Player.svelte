@@ -169,6 +169,7 @@
 			}
 
 			if(passedPlayers[i].proTeamId !== 0) {
+				const ownershipObj = passedPlayers[i].ownership;
 				player = {
 					id: passedPlayers[i].id,
 					name: `${passedPlayers[i].firstName} ${passedPlayers[i].lastName}`,
@@ -176,13 +177,17 @@
 					teamId: passedPlayers[i].proTeamId,
 					teamAb: team,
 					avatar: `background-image: url(https://a.espncdn.com/combiner/i?img=/i/headshots/mlb/players/full/${passedPlayers[i].id}.png&w=192&h=140&cb=1)`,
+					ownPct: ownershipObj,
 				}
+				player.ownPct = player.ownPct.percentOwned;
 				i++;
 				digestedPlayers.push(player);
 			}	
 		}
 
-		// console.log(digestedPlayers);
+		digestedPlayers.sort((a, b) => b.ownPct - a.ownPct);
+
+		console.log(digestedPlayers[0]);
 		
 		return digestedPlayers;
 	}
